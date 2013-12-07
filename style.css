@@ -1,0 +1,34 @@
+body {
+    background-color: #EEEEEE;
+}
+
+.display, .control {
+	margin: 10px;
+}
+
+.display {
+	float: left;
+}
+
+.control {
+	float: left;
+}
+
+
+svg {
+	border: 1px solid #018571;
+}
+
+
+.black {
+	fill: #a6611a;
+	stroke-width: 1px;
+	stroke: #018571;
+}
+
+.white {
+	fill: #f7f7f7;
+	stroke-width: 1px;
+	stroke: #018571;
+}
+
