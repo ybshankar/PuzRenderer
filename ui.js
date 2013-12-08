@@ -25,7 +25,7 @@ $(function() {
 	    	// If we use onloadend, we need to check the readyState.
 	    	reader.onloadend = function(evt) {
 	    		if (evt.target.readyState == FileReader.DONE) { // DONE == 2
-//	    			document.getElementById('content').textContent = evt.target.result;
+	    			document.getElementById('content').textContent = evt.target.result;
 	    			var content = evt.target.result;
 	    			var checksum = extract(content,"0x00","0x01");
     				var fileMagic = extract(content,"0x02","0x0D");
