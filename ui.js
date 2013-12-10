@@ -141,7 +141,7 @@ $(function() {
 		for (var x = 0; x < width; x++) {
 			reqMatBlank[x] = [];
 			for (var y = 0; y < height; y++) {
-				reqMatBlank[x][y] = matBlank[x+1][y + 1];
+				reqMatBlank[x][y] = matBlank[x + 1][y + 1];
 			}
 		}
 		return reqMatBlank;
@@ -159,21 +159,21 @@ $(function() {
 					// do nothing
 					nmat[x][y] = '.';
 				} else {
-					if ((mat[x][y + 1] == '-') && (mat[x+1][y] == '-')) {
-						if ((mat[x][y - 1] == '.') && (mat[x-1][y] == '.')) {
+					if ((mat[x][y + 1] == '-') && (mat[x + 1][y] == '-')) {
+						if ((mat[x][y - 1] == '.') && (mat[x - 1][y] == '.')) {
 							num++;
 							nmat[x][y] = '-' + num + 'AD';
 							//across and down
 							cN.push(num + 'AD');
 							across.push(num + ". " + cluesAD.shift());
 							down.push(num + ". " + cluesAD.shift());
-						} else if ((mat[x][y - 1] == '.') && (mat[x-1][y] == '-')) {
+						} else if ((mat[x][y - 1] == '.') && (mat[x - 1][y] == '-')) {
 							num++;
 							nmat[x][y] = '-' + num + 'A';
 							//across
 							cN.push(num + 'A');
 							across.push(num + ". " + cluesAD.shift());
-						} else if ((mat[x][y - 1] == '-') && (mat[x-1][y] == '.')) {
+						} else if ((mat[x][y - 1] == '-') && (mat[x - 1][y] == '.')) {
 							num++;
 							nmat[x][y] = '-' + num + 'D';
 							//down
@@ -183,14 +183,14 @@ $(function() {
 							nmat[x][y] = '-';
 						}
 
-					} else if ((mat[x][y + 1] == '.') && (mat[x+1][y] == '-')) {
-						if ((mat[x][y - 1] == '.') && (mat[x-1][y] == '.')) {
+					} else if ((mat[x][y + 1] == '.') && (mat[x + 1][y] == '-')) {
+						if ((mat[x][y - 1] == '.') && (mat[x - 1][y] == '.')) {
 							num++;
 							nmat[x][y] = '-' + num + 'D';
 							//down
 							cN.push(num + 'D');
 							down.push(num + ". " + cluesAD.shift());
-						} else if ((mat[x][y - 1] == '-') && (mat[x-1][y] == '.')) {
+						} else if ((mat[x][y - 1] == '-') && (mat[x - 1][y] == '.')) {
 							num++;
 							nmat[x][y] = '-' + num + 'D';
 							//down
@@ -199,14 +199,14 @@ $(function() {
 						} else {
 							nmat[x][y] = '-';
 						}
-					} else if ((mat[x][y + 1] == '-') && (mat[x+1][y] == '.')) {
-						if ((mat[x][y - 1] == '.') && (mat[x-1][y] == '.')) {
+					} else if ((mat[x][y + 1] == '-') && (mat[x + 1][y] == '.')) {
+						if ((mat[x][y - 1] == '.') && (mat[x - 1][y] == '.')) {
 							num++;
 							nmat[x][y] = '-' + num + 'A';
 							//across
 							cN.push(num + 'A');
 							across.push(num + ". " + cluesAD.shift());
-						} else if ((mat[x][y - 1] == '.') && (mat[x-1][y] == '-')) {
+						} else if ((mat[x][y - 1] == '.') && (mat[x - 1][y] == '-')) {
 							num++;
 							nmat[x][y] = '-' + num + 'A';
 							//across
@@ -230,7 +230,7 @@ $(function() {
 		for (var x = 0; x < width; x++) {
 			reqnumMat[x] = [];
 			for (var y = 0; y < height; y++) {
-				reqnumMat[x][y] = numMat[x+1][y + 1];
+				reqnumMat[x][y] = numMat[x + 1][y + 1];
 			}
 		}
 		return reqnumMat;
@@ -356,16 +356,12 @@ $(function() {
 		}
 	}, false);
 
-	window.onload = function onload() {
-		
-		var b64array = "ABCDEFGHIJKLMNOP" +
-           "QRSTUVWXYZabcdef" +
-           "ghijklmnopqrstuv" +
-           "wxyz0123456789+/" +
-           "=";
+	$(document).ready(function() {
+
+		var b64array = "ABCDEFGHIJKLMNOP" + "QRSTUVWXYZabcdef" + "ghijklmnopqrstuv" + "wxyz0123456789+/" + "=";
 
 		defaultTextString = function decode64() {
-			var input = document.getElementById("crosswordData").innerText;
+			var input = String(document.getElementById("crosswordData").innerText);
 			var output = "";
 			var chr1, chr2, chr3 = "";
 			var enc1, enc2, enc3, enc4 = "";
@@ -399,8 +395,8 @@ $(function() {
 
 			return output;
 		};
-      readAndDrawCrossword(defaultTextString());
+		readAndDrawCrossword(defaultTextString());
 
-	};
+	});
 
-});
+}); 
